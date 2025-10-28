@@ -1,6 +1,7 @@
-#  Database Schema Design and Normalization
+# Database Schema Design and Normalization
 
 ## Objective
+
 The goal of this task was to **design and normalize** a relational database for a property booking system. The system manages users, properties, bookings, payments, reviews, and messages — ensuring data integrity and eliminating redundancy by applying normalization principles up to the **Third Normal Form (3NF)**.
 
 ---
@@ -31,15 +32,18 @@ The relationships between them are as follows:
 To ensure efficiency and eliminate redundancy, normalization was applied as follows:
 
 ### **First Normal Form (1NF)**
+
 - Each table has a primary key (`UUID`).
 - Each column contains atomic values (no repeating groups).
 - Data types are clearly defined.
 
 ### **Second Normal Form (2NF)**
+
 - All non-key attributes depend entirely on the primary key.
 - No partial dependencies exist since all primary keys are single-column UUIDs.
 
 ### **Third Normal Form (3NF)**
+
 - Removed transitive dependencies:
   - User details (name, email, etc.) are only in the `USERS` table.
   - Property details are in `PROPERTIES`, not repeated in `BOOKINGS`.
@@ -58,6 +62,7 @@ Using PostgreSQL syntax, the schema was defined with:
 - **Indexes** on frequently queried columns to optimize performance.
 
 Example snippet:
+
 ```sql
 CREATE TABLE bookings (
     booking_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
