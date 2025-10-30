@@ -1,4 +1,4 @@
--- Non Correlated subquery to find all proprties whose rating is above 4.0
+-- Non Correlated subquery to find all properties whose rating is above 4.0
 SELECT p.property_id,
     p.name,
     p.location,
